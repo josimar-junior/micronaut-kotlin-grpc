@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.jj";
+option java_outer_classname = "ProductServer";
+option objc_class_prefix = "HLW";
+
+package com.jj;
+
+service ProductServerService {
+  rpc saveProduct (SaveProductRequest) returns (ProductResponse) {} rpc saveProductStream (stream SaveProductRequest) returns (stream ProductResponse) {}
+}
+
+message SaveProductRequest {
+  string name = 1;
+  int32 quantity = 2;
+  double value = 3;
+}
+
+message ProductResponse {
+  int32 id = 1;
+  string name = 2;
+  int32 quantity = 3;
+  double value = 4;
+}
